@@ -10,6 +10,7 @@ export const FileInput = () => {
         event.preventDefault();
 
         const files = event.target.files;
+        console.log(files[0].name)
         let reader = new FileReader()
 
         reader.readAsText(files[0]);

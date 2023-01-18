@@ -2,10 +2,11 @@ import { configureStore } from "@reduxjs/toolkit";
 import { TypedUseSelectorHook, useSelector } from "react-redux";
 import { combineReducers } from "redux";
 import thunk from 'redux-thunk';
+import {fileInputReducer} from "../components/FileInput/fileInput-reducer";
 
 
 const rootReducer = combineReducers({
-
+    fileInput: fileInputReducer,
 })
 
 export const store = configureStore({
