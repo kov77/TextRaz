@@ -1,0 +1,5 @@
+.container {
+    max-width: 35%;
+    height: 71vh;
+    overflow: auto;
+}

@@ -1,30 +1,34 @@
 import Form from 'react-bootstrap/Form';
-import { useDispatch } from 'react-redux';
-import { setText } from './fileInput-reducer';
+import {useDispatch, useSelector} from 'react-redux';
+import { setText, setTextArr } from './fileInput-reducer';
+import {AppStateType} from "../../App/store";
 
 export const FileInput = () => {
     const dispatch = useDispatch()
+    const textArr = useSelector((state: AppStateType) => state.fileInput.textArr)
 
     const onSubmit = (event: any) => {
 
         event.preventDefault();
 
         const files = event.target.files;
-        console.log(files[0].name)
         let reader = new FileReader()
 
         reader.readAsText(files[0]);
 
         reader.onload = function() {
-            console.log(reader.result);
-            dispatch(setText({text: reader.result}))
+            if(reader.result) {
+                dispatch(setText({text: reader.result}))
+                // @ts-ignore
+                dispatch(setTextArr({textArr: reader.result.split('.')}))
+            }
         };
     }
 
         return (
             <Form.Group controlId="formFile" className="mb-3">
-                <Form.Label>Default file input example</Form.Label>
-                <Form.Control onChange={onSubmit} type="file"/>
+                <Form.Label>Please upload your text file</Form.Label>
+                <Form.Control style={{width: "300px"}} onChange={onSubmit} type="file"/>
             </Form.Group>
         )
 

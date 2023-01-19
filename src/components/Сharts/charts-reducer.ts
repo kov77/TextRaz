@@ -24,7 +24,8 @@ export const {
 
 export const sendTextTC = (text: string) => (dispatch: Dispatch) => {
         textApi.sendText(text)
-            .then(response => {
-                console.log(response)
-            })
+            // .then((resp: any) => {
+            //     console.log(resp)
+            // })
+
 }

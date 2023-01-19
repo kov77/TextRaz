@@ -2,7 +2,8 @@ import { createSlice } from "@reduxjs/toolkit"
 
 
 const initialState = {
-    text: ""
+    text: "",
+    textArr: []
 }
 
 const slice = createSlice({
@@ -11,7 +12,10 @@ const slice = createSlice({
     reducers: {
         setText(state, action) {
             return{...state, text: action.payload.text}
-        }
+        },
+        setTextArr(state, action) {
+            return{...state, textArr: action.payload.textArr}
+        },
     },
 })
 
@@ -19,5 +23,6 @@ export const fileInputReducer = slice.reducer
 
 export const {
     setText,
+    setTextArr,
 
 } = slice.actions
