@@ -1,5 +1,5 @@
 import { createSlice, Dispatch } from "@reduxjs/toolkit"
-import {textApi} from "../../App/api";
+// import {textApi} from "../../App/api";
 
 
 const initialState = {
